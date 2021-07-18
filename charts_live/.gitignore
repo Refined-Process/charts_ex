@@ -24,3 +24,8 @@ charts_live-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# Code analysis files
+/.elixir_ls/
+
+.DS_Store
