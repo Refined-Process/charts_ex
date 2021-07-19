@@ -1,4 +1,4 @@
-defmodule Charts.ColumnChartTest do
+defmodule Charts.BarChartTest do
   @moduledoc false
 
   alias Charts.{

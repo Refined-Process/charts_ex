@@ -12,7 +12,7 @@ defprotocol Charts.Chart do
   @doc """
   Returns a map where the keys are atoms representing color names
   and the values are either Strings representing hex values or
-  `Uncharted.Gradient` structs that can be used to style data
+  `Charts.Gradient` structs that can be used to style data
   points in your chart with a gradient.
 
   ## Examples
@@ -20,7 +20,7 @@ defprotocol Charts.Chart do
       Charts.Chart.colors(my_chart)
       %{
         blue: "#6bdee4",
-        rose_gradient: %Uncharted.Gradient{
+        rose_gradient: %Charts.Gradient{
           start_color: "#642B73",
           stop_color: "#C6426E"
         }

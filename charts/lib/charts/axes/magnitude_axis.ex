@@ -27,7 +27,7 @@ defmodule Charts.Axes.MagnitudeAxis do
   along an axis, as well as `grid_lines` going across a chart.
 
   If you do not specify a different `grid_lines_func` function
-  when you create a `Uncharted.Axes.MagnitudeAxis` struct, this
+  when you create a `Charts.Axes.MagnitudeAxis` struct, this
   implementation will be provided used.
   """
   @spec default_grid_lines_fun({min, max}, step) :: list(Float.t())

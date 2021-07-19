@@ -2,8 +2,8 @@ defmodule ChartsLive.BarViewTest do
   @moduledoc false
 
   use ExUnit.Case
-  import Phoenix.HTML, only: [safe_to_string: 1]
 
+  import Phoenix.HTML, only: [safe_to_string: 1]
   import ChartsLive.BarView
 
   alias Charts.{BaseChart, Gradient, BarChart.Column}
@@ -37,7 +37,7 @@ defmodule ChartsLive.BarViewTest do
       offsetter = fn _grid_line -> 100 * 2 end
 
       assert safe_to_string(y_axis(chart, [10, 20, 30], offsetter)) ==
-               "<svg class=\"columns__y-labels\" height=\"90%\" id=\"a-title-ylabels\" style=\"overflow: visible\" width=\"8%\" x=\"0\" y=\"0\"><svg height=\"20px\" width=\"100%\" x=\"0\" y=\"200%\"><svg height=\"100%\" width=\"100%\"><text alignment-baseline=\"middle\" font-size=\"9px\" text-anchor=\"middle\" x=\"50%\" y=\"50%\">10</text></svg></svg><svg height=\"20px\" width=\"100%\" x=\"0\" y=\"200%\"><svg height=\"100%\" width=\"100%\"><text alignment-baseline=\"middle\" font-size=\"9px\" text-anchor=\"middle\" x=\"50%\" y=\"50%\">20</text></svg></svg><svg height=\"20px\" width=\"100%\" x=\"0\" y=\"200%\"><svg height=\"100%\" width=\"100%\"><text alignment-baseline=\"middle\" font-size=\"9px\" text-anchor=\"middle\" x=\"50%\" y=\"50%\">30</text></svg></svg></svg>"
+               "<svg class=\"columns__y-labels\" height=\"90%\" id=\"a-title-ylabels\" style=\"overflow: visible\" width=\"8%\" x=\"0\" y=\"0\"><svg height=\"20px\" width=\"100%\" x=\"0\" y=\"200%\"><svg height=\"100%\" width=\"100%\"><text alignment-baseline=\"middle\" font-size=\"14px\" text-anchor=\"middle\" x=\"50%\" y=\"50%\">10</text></svg></svg><svg height=\"20px\" width=\"100%\" x=\"0\" y=\"200%\"><svg height=\"100%\" width=\"100%\"><text alignment-baseline=\"middle\" font-size=\"14px\" text-anchor=\"middle\" x=\"50%\" y=\"50%\">20</text></svg></svg><svg height=\"20px\" width=\"100%\" x=\"0\" y=\"200%\"><svg height=\"100%\" width=\"100%\"><text alignment-baseline=\"middle\" font-size=\"14px\" text-anchor=\"middle\" x=\"50%\" y=\"50%\">30</text></svg></svg></svg>"
     end
   end
 

@@ -11,7 +11,7 @@ defmodule Charts.BaseChart do
   @type t() :: %__MODULE__{
           title: String.t(),
           colors: %{color_name() => String.t() | Gradient.t()},
-          dataset: Uncharted.dataset()
+          dataset: Charts.dataset()
         }
 
   defimpl Charts.Chart, for: __MODULE__ do
