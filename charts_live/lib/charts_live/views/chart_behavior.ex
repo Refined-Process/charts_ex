@@ -6,14 +6,16 @@ defmodule ChartsLive.ChartBehavior do
   alias Charts.BaseChart
 
   @callback color_to_fill(map(), String.t()) :: String.t()
-  @callback svg_id(%BaseChart{}, String.t()) :: term()
+  @callback svg_id(%BaseChart{}, String.t()) :: String.t()
   @callback color_defs(%BaseChart{}) :: String.t()
-  @callback y_axis(%BaseChart{}, list(), function()) :: String.t()
+  @callback y_axis_labels(%BaseChart{}, list(), function()) :: String.t()
+  @callback y_axis_background_lines(%BaseChart{}, list(), function()) :: String.t()
 
   @optional_callbacks color_to_fill: 2,
                       svg_id: 2,
                       color_defs: 1,
-                      y_axis: 3
+                      y_axis_labels: 3,
+                      y_axis_background_lines: 3
 
   defmacro __using__(_) do
     quote do
@@ -61,7 +63,7 @@ defmodule ChartsLive.ChartBehavior do
       @doc """
       The function used to generate Y Axis labels
       """
-      def y_axis(chart, grid_lines, offsetter) do
+      def y_axis_labels(chart, grid_lines, offsetter) do
         content = Enum.map(grid_lines, &y_axis_rows(&1, offsetter))
 
         content_tag(:svg, content,
@@ -72,6 +74,69 @@ defmodule ChartsLive.ChartBehavior do
           y: "0",
           x: "0",
           style: "overflow: visible"
+        )
+      end
+
+      @doc """
+      The function used to generate X Axis background lines
+      """
+      def x_axis_background_lines(chart, grid_lines, offsetter) do
+        dynamic_lines = Enum.map(grid_lines, &x_axis_background_line(&1, offsetter))
+
+        content_tag(:g, id: svg_id(chart, "lines"), class: "row__lines") do
+          [
+            content_tag(:line, "",
+              x1: "0%",
+              y1: "0%",
+              x2: "0%",
+              y2: "100%",
+              stroke: "#efefef",
+              stroke_width: "2px",
+              stroke_linecap: "round"
+            ),
+            content_tag(:line, "",
+              x1: "0%",
+              y1: "100%",
+              x2: "100%",
+              y2: "100%",
+              stroke: "#efefef",
+              stroke_width: "4px",
+              stroke_linecap: "round"
+            ),
+            dynamic_lines,
+            content_tag(:line, "",
+              x1: "0%",
+              y1: "0%",
+              x2: "100%",
+              y2: "0%",
+              stroke: "#efefef",
+              stroke_width: "4px",
+              stroke_linecap: "round"
+            ),
+            content_tag(:line, "",
+              x1: "100%",
+              y1: "0%",
+              x2: "100%",
+              y2: "100%",
+              stroke: "#efefef",
+              stroke_width: "2px",
+              stroke_linecap: "round"
+            )
+          ]
+        end
+      end
+
+      defp x_axis_background_line(line, offsetter) do
+        offset = offsetter.(line)
+
+        content_tag(:line, "",
+          x1: "0%",
+          y1: "#{offset}%",
+          x2: "100%",
+          y2: "#{offset}%",
+          stroke: "#efefef",
+          stroke_width: "2px",
+          stroke_linecap: "round"
         )
       end
 

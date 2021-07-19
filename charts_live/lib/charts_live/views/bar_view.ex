@@ -11,10 +11,10 @@ defmodule ChartsLive.BarView do
   @doc """
   The function used to generate X Axis labels
   """
-  def x_axis(chart, columns) do
-    x_axis_columns = Enum.map(columns, &x_axis_columns(&1))
+  def x_axis_labels(chart, columns) do
+    columns = Enum.map(columns, &x_axis_column_label(&1))
 
-    content_tag(:svg, x_axis_columns,
+    content_tag(:svg, columns,
       id: svg_id(chart, "xlabels"),
       class: "columns__x-labels",
       width: "90.5%",
@@ -24,7 +24,7 @@ defmodule ChartsLive.BarView do
     )
   end
 
-  defp x_axis_columns(column) do
+  defp x_axis_column_label(column) do
     content_tag(:svg, x: "#{column.offset}%", y: "0%", height: "100%", width: "#{column.width}%") do
       content_tag(:svg, width: "100%", height: "100%") do
         content_tag(:text, column.label,
