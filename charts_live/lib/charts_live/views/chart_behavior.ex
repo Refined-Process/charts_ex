@@ -85,57 +85,29 @@ defmodule ChartsLive.ChartBehavior do
 
         content_tag(:g, id: svg_id(chart, "lines"), class: "row__lines") do
           [
-            content_tag(:line, "",
-              x1: "0%",
-              y1: "0%",
-              x2: "0%",
-              y2: "100%",
-              stroke: "#efefef",
-              stroke_width: "2px",
-              stroke_linecap: "round"
-            ),
-            content_tag(:line, "",
-              x1: "0%",
-              y1: "100%",
-              x2: "100%",
-              y2: "100%",
-              stroke: "#efefef",
-              stroke_width: "4px",
-              stroke_linecap: "round"
-            ),
+            background_line("0%", "0%", "0%", "100%"),
+            background_line("0%", "100%", "100%", "100%", 4),
             dynamic_lines,
-            content_tag(:line, "",
-              x1: "0%",
-              y1: "0%",
-              x2: "100%",
-              y2: "0%",
-              stroke: "#efefef",
-              stroke_width: "4px",
-              stroke_linecap: "round"
-            ),
-            content_tag(:line, "",
-              x1: "100%",
-              y1: "0%",
-              x2: "100%",
-              y2: "100%",
-              stroke: "#efefef",
-              stroke_width: "2px",
-              stroke_linecap: "round"
-            )
+            background_line("0%", "0%", "100%", "0%", 4),
+            background_line("100%", "0%", "100%", "100%")
           ]
         end
       end
 
       defp x_axis_background_line(line, offsetter) do
-        offset = offsetter.(line)
+        offset = "#{offsetter.(line)}%"
 
+        background_line("0%", offset, "100%", offset)
+      end
+
+      defp background_line(x1, y1, x2, y2, stroke \\ 2) do
         content_tag(:line, "",
-          x1: "0%",
-          y1: "#{offset}%",
-          x2: "100%",
-          y2: "#{offset}%",
+          x1: x1,
+          y1: y1,
+          x2: x2,
+          y2: y2,
           stroke: "#efefef",
-          stroke_width: "2px",
+          stroke_width: "#{stroke}px",
           stroke_linecap: "round"
         )
       end
