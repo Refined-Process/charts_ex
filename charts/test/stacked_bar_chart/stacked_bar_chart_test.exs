@@ -11,14 +11,29 @@ defmodule Charts.StackedBarChartTest do
   alias Charts.Axes.{BaseAxes, MagnitudeAxis}
   use ExUnit.Case
 
-  @y_axis %MagnitudeAxis{min: 0, max: 100}
+  @y_axis %MagnitudeAxis{min: 0, max: 300}
   @axes %BaseAxes{magnitude_axis: @y_axis}
   @data [
-    %BaseDatum{name: "column 1", values: %{blueberry: 1, orange: 5, apple: 10, watermelon: 15, banana: 20}},
-    %BaseDatum{name: "column 2", values: %{blueberry: 50, orange: 40, apple: 30, watermelon: 20, banana: 10}},
-    %BaseDatum{name: "column 3", values: %{blueberry: 3, orange: 4, apple: 5, watermelon: 1, banana: 2}},
-    %BaseDatum{name: "column 4", values: %{blueberry: 50, orange: 40, apple: 30, watermelon: 20, banana: 10}},
-    %BaseDatum{name: "column 5", values: %{blueberry: 1, orange: 5, apple: 10, watermelon: 15, banana: 20}}
+    %BaseDatum{
+      name: "column 1",
+      values: %{blueberry: 1, orange: 5, apple: 10, watermelon: 15, banana: 20}
+    },
+    %BaseDatum{
+      name: "column 2",
+      values: %{blueberry: 50, orange: 40, apple: 30, watermelon: 20, banana: 10}
+    },
+    %BaseDatum{
+      name: "column 3",
+      values: %{blueberry: 3, orange: 4, apple: 5, watermelon: 1, banana: 2}
+    },
+    %BaseDatum{
+      name: "column 4",
+      values: %{blueberry: 50, orange: 40, apple: 30, watermelon: 20, banana: 10}
+    },
+    %BaseDatum{
+      name: "column 5",
+      values: %{blueberry: 1, orange: 5, apple: 10, watermelon: 15, banana: 20}
+    }
   ]
   @colors %{
     blueberry: "#4096EE",
@@ -74,7 +89,7 @@ defmodule Charts.StackedBarChartTest do
 
     test "calculates column height as a percent of y-axis max value" do
       column_heights = Enum.map(StackedBarChart.columns(@chart), & &1.column_height)
-      expected_column_heights = [51.0, 150.0, 15.0, 150.0, 51.0]
+      expected_column_heights = [17.0, 50.0, 5.0, 50.0, 17.0]
 
       assert column_heights == expected_column_heights
     end
@@ -87,12 +102,14 @@ defmodule Charts.StackedBarChartTest do
 
     test "returns the first rectangle correctly" do
       [first | _] = StackedBarChart.rectangles(@chart)
+
       expected = %Rectangle{
         fill_color: "#008C00",
-        height: 15,
+        height: 5.0,
+        label: 15,
         width: 20.0,
         x_offset: 5.0,
-        y_offset: 59
+        y_offset: 86.33333333333333
       }
 
       assert first == expected
