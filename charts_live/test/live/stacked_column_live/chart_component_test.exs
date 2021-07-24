@@ -7,7 +7,7 @@ defmodule ChartsLive.Live.StackedColumnLive.ChartComponentTest do
   alias ChartsLive.Live.StackedColumnLive.ChartComponent
   alias Charts.Axes.{MagnitudeAxis, BaseAxes}
   alias Charts.{BaseChart, BaseDatum}
-  alias Charts.BarChart.Dataset
+  alias Charts.ColumnChart.Dataset
 
   @endpoint Endpoint
 

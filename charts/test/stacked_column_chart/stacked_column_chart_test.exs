@@ -67,10 +67,10 @@ defmodule Charts.StackedColumnChartTest do
     end
 
     test "returns bar widths as half of column widths" do
-      bar_widths = Enum.map(StackedColumnChart.columns(@chart), & &1.bar_width)
-      expected_bar_width = 10.0
+      column_widths = Enum.map(StackedColumnChart.columns(@chart), & &1.column_width)
+      expected_column_width = 10.0
 
-      assert Enum.all?(bar_widths, fn bar_width -> bar_width == expected_bar_width end)
+      assert Enum.all?(column_widths, fn column_width -> column_width == expected_column_width end)
     end
 
     test "returns correct column offsets" do
@@ -80,11 +80,11 @@ defmodule Charts.StackedColumnChartTest do
       assert column_offsets == expected_column_offsets
     end
 
-    test "returns bar_offsets with margins taken into account" do
-      bar_offsets = Enum.map(StackedColumnChart.columns(@chart), & &1.bar_offset)
-      expected_bar_offsets = [5.0, 25.0, 45.0, 65.0, 85.0]
+    test "returns column_offsets with margins taken into account" do
+      column_offsets = Enum.map(StackedColumnChart.columns(@chart), & &1.column_offset)
+      expected_column_offsets = [5.0, 25.0, 45.0, 65.0, 85.0]
 
-      assert bar_offsets == expected_bar_offsets
+      assert column_offsets == expected_column_offsets
     end
 
     test "calculates column height as a percent of y-axis max value" do

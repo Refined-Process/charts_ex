@@ -1,13 +1,13 @@
-defmodule ChartsLive.Live.BarLive.ChartComponentTest do
+defmodule ChartsLive.Live.ColumnLive.ChartComponentTest do
   @moduledoc false
 
   import Phoenix.LiveViewTest
   use ExUnit.Case
 
-  alias ChartsLive.Live.BarLive.ChartComponent
+  alias ChartsLive.Live.ColumnLive.ChartComponent
   alias Charts.Axes.{MagnitudeAxis, BaseAxes}
   alias Charts.BaseChart
-  alias Charts.BarChart.Dataset
+  alias Charts.ColumnChart.Dataset
 
   @endpoint Endpoint
 

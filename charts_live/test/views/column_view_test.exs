@@ -1,12 +1,12 @@
-defmodule ChartsLive.BarViewTest do
+defmodule ChartsLive.ColumnViewTest do
   @moduledoc false
 
   use ExUnit.Case
 
   import Phoenix.HTML, only: [safe_to_string: 1]
-  import ChartsLive.BarView
+  import ChartsLive.ColumnView
 
-  alias Charts.{BaseChart, Gradient, BarChart.Column}
+  alias Charts.{BaseChart, Gradient, ColumnChart.Column}
 
   describe "color_to_fill/2" do
     test "should return color value" do

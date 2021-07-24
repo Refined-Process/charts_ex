@@ -22,8 +22,8 @@ defimpl Charts.StackedColumnChart, for: Charts.BaseChart do
         column_height: column_height,
         offset: offset,
         label: datum.name,
-        bar_width: width / 2.0,
-        bar_offset: offset + margin,
+        column_width: width / 2.0,
+        column_offset: offset + margin,
         parts: datum.values
       }
     end)
@@ -52,7 +52,7 @@ defimpl Charts.StackedColumnChart, for: Charts.BaseChart do
       case acc do
         [previous | _rectangles] ->
           new_rectangle = %Rectangle{
-            x_offset: column.bar_offset,
+            x_offset: column.column_offset,
             y_offset: previous.y_offset - rectangle_height,
             fill_color: color,
             width: column.width,
@@ -64,7 +64,7 @@ defimpl Charts.StackedColumnChart, for: Charts.BaseChart do
 
         [] ->
           new_rectangle = %Rectangle{
-            x_offset: column.bar_offset,
+            x_offset: column.column_offset,
             y_offset: 100 - rectangle_height,
             fill_color: color,
             width: column.width,

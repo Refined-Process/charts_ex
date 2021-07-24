@@ -7,7 +7,7 @@ defmodule ChartsLive.Live.LineLive.ChartComponentTest do
   alias ChartsLive.Live.LineLive.ChartComponent
   alias Charts.Axes.{MagnitudeAxis, XYAxes}
   alias Charts.BaseChart
-  alias Charts.BarChart.Dataset
+  alias Charts.ColumnChart.Dataset
 
   @endpoint Endpoint
 

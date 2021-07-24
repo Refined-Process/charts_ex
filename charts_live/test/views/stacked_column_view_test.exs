@@ -6,7 +6,7 @@ defmodule ChartsLive.StackedColumnViewTest do
   import Phoenix.HTML, only: [safe_to_string: 1]
   import ChartsLive.StackedColumnView
 
-  alias Charts.{BaseChart, BarChart.Column}
+  alias Charts.{BaseChart, ColumnChart.Column}
   alias Charts.StackedColumnChart.Rectangle
 
   describe "x_axis_labels/2" do

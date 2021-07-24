@@ -1,4 +1,4 @@
-defmodule ChartsLive.BarView do
+defmodule ChartsLive.ColumnView do
   @moduledoc """
   View functions for rendering Bar charts
   """
@@ -6,7 +6,7 @@ defmodule ChartsLive.BarView do
   use ChartsLive.ChartBehavior
 
   alias Charts.Gradient
-  alias Charts.BarChart.Column
+  alias Charts.ColumnChart.Column
 
   @doc """
   The function used to generate X Axis labels

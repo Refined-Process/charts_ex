@@ -1,12 +1,12 @@
-defmodule ChartsLive.Live.BarLive.ChartComponent do
+defmodule ChartsLive.Live.ColumnLive.ChartComponent do
   @moduledoc """
   Bar Chart Component
   """
 
   use Phoenix.LiveComponent
 
-  alias ChartsLive.BarView
-  alias Charts.BarChart
+  alias ChartsLive.ColumnView
+  alias Charts.ColumnChart
 
   def update(assigns, socket) do
     y_axis = assigns.chart.dataset.axes.magnitude_axis
@@ -17,7 +17,7 @@ defmodule ChartsLive.Live.BarLive.ChartComponent do
     socket =
       socket
       |> assign(:chart, assigns.chart)
-      |> assign(:columns, BarChart.columns(assigns.chart))
+      |> assign(:columns, ColumnChart.columns(assigns.chart))
       |> assign(:grid_lines, grid_lines)
       |> assign(:grid_line_offsetter, grid_line_offsetter)
 
@@ -25,6 +25,6 @@ defmodule ChartsLive.Live.BarLive.ChartComponent do
   end
 
   def render(assigns) do
-    BarView.render("chart_component.html", assigns)
+    ColumnView.render("chart_component.html", assigns)
   end
 end

@@ -20,8 +20,8 @@ defimpl Charts.ColumnChart, for: Charts.BaseChart do
         label: datum.name,
         width: width,
         offset: offset,
-        bar_offset: offset + margin,
-        bar_width: width / 2.0,
+        column_offset: offset + margin,
+        column_width: width / 2.0,
         column_height: column_height,
         fill_color: datum.fill_color
       }
