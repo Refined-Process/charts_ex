@@ -1,6 +1,6 @@
-defimpl Charts.StackedBarChart, for: Charts.BaseChart do
+defimpl Charts.StackedColumnChart, for: Charts.BaseChart do
   alias Charts.BaseChart
-  alias Charts.StackedBarChart.{MultiColumn, Rectangle}
+  alias Charts.StackedColumnChart.{MultiColumn, Rectangle}
   alias Charts.BarChart.Dataset
 
   def columns(%BaseChart{dataset: nil}), do: []
@@ -44,6 +44,7 @@ defimpl Charts.StackedBarChart, for: Charts.BaseChart do
 
   defp build_rectangles_for_column(column) do
     column.parts
+    |> Enum.reject(fn {_color, height} -> height == 0 end)
     |> Enum.reduce([], fn {color, height}, acc ->
       percentage = height / Enum.sum(Map.values(column.parts)) * 100
       rectangle_height = percentage / 100 * column.column_height
@@ -64,7 +65,7 @@ defimpl Charts.StackedBarChart, for: Charts.BaseChart do
         [] ->
           new_rectangle = %Rectangle{
             x_offset: column.bar_offset,
-            y_offset: 100,
+            y_offset: 100 - rectangle_height,
             fill_color: color,
             width: column.width,
             height: rectangle_height,

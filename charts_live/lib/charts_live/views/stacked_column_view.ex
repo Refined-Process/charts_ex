@@ -1,12 +1,12 @@
-defmodule ChartsLive.StackedBarView do
+defmodule ChartsLive.StackedColumnView do
   @moduledoc """
-  View functions for rendering Stacked Bar charts
+  View functions for rendering Stacked Column charts
   """
 
   use ChartsLive.ChartBehavior
 
   alias Charts.Gradient
-  alias Charts.StackedBarChart.Rectangle
+  alias Charts.StackedColumnChart.Rectangle
 
   @doc """
   The function used to generate X Axis labels

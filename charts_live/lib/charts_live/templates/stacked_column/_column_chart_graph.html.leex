@@ -3,9 +3,9 @@
     <%= for %Rectangle{width: width, x_offset: x_offset, y_offset: y_offset, height: height, fill_color: fill_color} <- @rectangles do %>
       <rect
         x="<%= x_offset %>"
-        y="<%= y_offset - 4 %>"
+        y="<%= y_offset %>"
         height="<%= height %>"
-        width="<%= width / 2 %>"
+        width="<%= width / 4 %>"
         fill="<%= @chart.colors[fill_color] %>"
       >
       </rect>

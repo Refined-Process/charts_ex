@@ -1,10 +1,10 @@
-defmodule ChartsLive.Live.StackedBarLive.ChartComponentTest do
+defmodule ChartsLive.Live.StackedColumnLive.ChartComponentTest do
   @moduledoc false
 
   import Phoenix.LiveViewTest
   use ExUnit.Case
 
-  alias ChartsLive.Live.StackedBarLive.ChartComponent
+  alias ChartsLive.Live.StackedColumnLive.ChartComponent
   alias Charts.Axes.{MagnitudeAxis, BaseAxes}
   alias Charts.{BaseChart, BaseDatum}
   alias Charts.BarChart.Dataset
@@ -49,7 +49,7 @@ defmodule ChartsLive.Live.StackedBarLive.ChartComponentTest do
     rendered_component = render_component(ChartComponent, %{chart: base_chart})
 
     assert rendered_component =~ title
-    assert rendered_component =~ ~s(data-testid="lc-live-stacked-bar-component")
+    assert rendered_component =~ ~s(class="lc-live-stacked-bar-component")
   end
 
   def grid_line_fun({min, max}, _step) do

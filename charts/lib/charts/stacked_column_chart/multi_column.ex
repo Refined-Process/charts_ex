@@ -1,4 +1,4 @@
-defmodule Charts.StackedBarChart.MultiColumn do
+defmodule Charts.StackedColumnChart.MultiColumn do
   @moduledoc """
   A struct representing column-level display properties with multiple datum
   """
@@ -12,6 +12,6 @@ defmodule Charts.StackedBarChart.MultiColumn do
           label: String.t(),
           bar_width: Float.t(),
           bar_offset: Float.t(),
-          parts: list(Charts.StackedBarChart.MultiColumn.t())
+          parts: list(Charts.StackedColumnChart.MultiColumn.t())
         }
 end

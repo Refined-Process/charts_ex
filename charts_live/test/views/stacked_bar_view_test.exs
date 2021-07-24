@@ -1,13 +1,13 @@
-defmodule ChartsLive.StackedBarViewTest do
+defmodule ChartsLive.StackedColumnViewTest do
   @moduledoc false
 
   use ExUnit.Case
 
   import Phoenix.HTML, only: [safe_to_string: 1]
-  import ChartsLive.StackedBarView
+  import ChartsLive.StackedColumnView
 
-  alias Charts.{BaseChart, Gradient, BarChart.Column}
-  alias Charts.StackedBarChart.Rectangle
+  alias Charts.{BaseChart, BarChart.Column}
+  alias Charts.StackedColumnChart.Rectangle
 
   describe "x_axis_labels/2" do
     test "should return svg" do

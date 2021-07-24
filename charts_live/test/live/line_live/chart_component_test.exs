@@ -32,7 +32,7 @@ defmodule ChartsLive.Live.LineLive.ChartComponentTest do
     rendered_component = render_component(ChartComponent, %{chart: base_chart})
 
     assert rendered_component =~ title
-    assert rendered_component =~ ~s(data-testid="lc-live-line-component")
+    assert rendered_component =~ ~s(class="lc-live-line-component")
   end
 
   def grid_line_fun({min, max}, _step) do

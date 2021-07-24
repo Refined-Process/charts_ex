@@ -86,9 +86,9 @@ defmodule ChartsLive.ChartBehavior do
         content_tag(:g, id: svg_id(chart, "lines"), class: "row__lines") do
           [
             background_line("0%", "0%", "0%", "100%"),
-            background_line("0%", "100%", "100%", "100%", 4),
+            background_line("0%", "100%", "100%", "100%"),
             dynamic_lines,
-            background_line("0%", "0%", "100%", "0%", 4),
+            background_line("0%", "0%", "100%", "0%"),
             background_line("100%", "0%", "100%", "100%")
           ]
         end
@@ -100,7 +100,7 @@ defmodule ChartsLive.ChartBehavior do
         background_line("0%", offset, "100%", offset)
       end
 
-      defp background_line(x1, y1, x2, y2, stroke \\ 2) do
+      defp background_line(x1, y1, x2, y2, stroke \\ 1) do
         content_tag(:line, "",
           x1: x1,
           y1: y1,

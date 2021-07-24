@@ -1,4 +1,4 @@
-defmodule Charts.StackedBarChart.Rectangle do
+defmodule Charts.StackedColumnChart.Rectangle do
   @moduledoc """
   A struct representing a Rectangle on an x, y coordinate chart
   """

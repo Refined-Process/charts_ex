@@ -1,12 +1,12 @@
-defmodule ChartsLive.Live.StackedBarLive.ChartComponent do
+defmodule ChartsLive.Live.StackedColumnLive.ChartComponent do
   @moduledoc """
   Stacked Bar Chart Component
   """
 
   use Phoenix.LiveComponent
 
-  alias ChartsLive.StackedBarView
-  alias Charts.StackedBarChart
+  alias ChartsLive.StackedColumnView
+  alias Charts.StackedColumnChart
 
   def update(assigns, socket) do
     y_axis = assigns.chart.dataset.axes.magnitude_axis
@@ -17,8 +17,8 @@ defmodule ChartsLive.Live.StackedBarLive.ChartComponent do
     socket =
       socket
       |> assign(:chart, assigns.chart)
-      |> assign(:columns, StackedBarChart.columns(assigns.chart))
-      |> assign(:rectangles, StackedBarChart.rectangles(assigns.chart))
+      |> assign(:columns, StackedColumnChart.columns(assigns.chart))
+      |> assign(:rectangles, StackedColumnChart.rectangles(assigns.chart))
       |> assign(:grid_lines, grid_lines)
       |> assign(:grid_line_offsetter, grid_line_offsetter)
 
@@ -26,6 +26,6 @@ defmodule ChartsLive.Live.StackedBarLive.ChartComponent do
   end
 
   def render(assigns) do
-    StackedBarView.render("chart_component.html", assigns)
+    StackedColumnView.render("chart_component.html", assigns)
   end
 end
