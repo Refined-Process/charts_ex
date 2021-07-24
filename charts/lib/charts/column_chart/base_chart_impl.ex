@@ -1,6 +1,6 @@
-defimpl Charts.BarChart, for: Charts.BaseChart do
+defimpl Charts.ColumnChart, for: Charts.BaseChart do
   alias Charts.BaseChart
-  alias Charts.BarChart.{Column, Dataset}
+  alias Charts.ColumnChart.{Column, Dataset}
 
   def columns(%BaseChart{dataset: nil}), do: []
   def columns(%BaseChart{dataset: dataset}), do: columns(dataset)

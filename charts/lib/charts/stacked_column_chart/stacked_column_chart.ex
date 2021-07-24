@@ -1,5 +1,5 @@
 defprotocol Charts.StackedColumnChart do
-  @spec columns(Charts.chart() | Charts.BarChart.Dataset.t()) ::
+  @spec columns(Charts.chart() | Charts.ColumnChart.Dataset.t()) ::
           list(Charts.StackedColumnChart.MultiColumn.t())
   def columns(chart)
 

@@ -1,4 +1,4 @@
-defmodule Charts.BarChart.Dataset do
+defmodule Charts.ColumnChart.Dataset do
   @moduledoc """
   Struct representing a dataset for a basic column chart.
   """

@@ -6,7 +6,7 @@ defmodule Charts.DataProvider do
   underlying `Charts.dataset`.
 
   Let's say we have a list of data we want to render in an
-  `Charts.BarChart`. We will need to populate the `Charts.BarChart`'s
+  `Charts.ColumnChart`. We will need to populate the `Charts.ColumnChart`'s
   dataset with a list of data, where each data element is an
   `Charts.BaseDatum`.
 
@@ -20,7 +20,7 @@ defmodule Charts.DataProvider do
   ]
   ```
 
-  We will need to transform this data in a way that an `Charts.BarChart` can
+  We will need to transform this data in a way that an `Charts.ColumnChart` can
   understand. We can manage this by defining our own module that implements
   the `Charts.DataProvider` behaviour. Here is an example of how that might
   look.
@@ -42,7 +42,7 @@ defmodule Charts.DataProvider do
     def update_chart(chart, updates) do
       %Charts.BaseChart{
         chart |
-        dataset: %Charts.BarChart.Dataset{
+        dataset: %Charts.ColumnChart.Dataset{
           chart.dataset |
             data: Enum.map(updates, &vehicle_to_datum/1)
         }

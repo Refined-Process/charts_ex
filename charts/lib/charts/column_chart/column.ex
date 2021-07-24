@@ -1,4 +1,4 @@
-defmodule Charts.BarChart.Column do
+defmodule Charts.ColumnChart.Column do
   @moduledoc """
   A struct representing column-level display properties.
   """

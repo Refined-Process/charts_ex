@@ -1,7 +1,7 @@
 defimpl Charts.StackedColumnChart, for: Charts.BaseChart do
   alias Charts.BaseChart
   alias Charts.StackedColumnChart.{MultiColumn, Rectangle}
-  alias Charts.BarChart.Dataset
+  alias Charts.ColumnChart.Dataset
 
   def columns(%BaseChart{dataset: nil}), do: []
   def columns(%BaseChart{dataset: dataset}), do: columns(dataset)

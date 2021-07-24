@@ -3,7 +3,7 @@ defmodule Charts.LineChartTest do
 
   alias Charts.{BaseChart, BaseDatum, LineChart}
   alias Charts.Axes.{MagnitudeAxis, XYAxes}
-  alias Charts.BarChart.Dataset
+  alias Charts.ColumnChart.Dataset
   alias Charts.LineChart.Line
 
   use ExUnit.Case

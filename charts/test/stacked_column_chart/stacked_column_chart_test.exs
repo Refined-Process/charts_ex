@@ -42,7 +42,7 @@ defmodule Charts.StackedColumnChartTest do
     watermelon: "#008C00",
     banana: "#FFFF88"
   }
-  @dataset %Charts.BarChart.Dataset{data: @data, axes: @axes}
+  @dataset %Charts.ColumnChart.Dataset{data: @data, axes: @axes}
   @chart %BaseChart{title: "title", dataset: @dataset, colors: @colors}
 
   describe "columns/1" do

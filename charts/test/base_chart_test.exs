@@ -5,7 +5,7 @@ defmodule Charts.BaseChartTest do
     BaseChart,
     BaseDatum,
     Chart,
-    BarChart,
+    ColumnChart,
     Gradient
   }
 
@@ -21,7 +21,7 @@ defmodule Charts.BaseChartTest do
     %BaseDatum{name: "Bar Four", values: [750]},
     %BaseDatum{name: "Bar Five", values: [1750]}
   ]
-  @dataset %BarChart.Dataset{data: @data, axes: @axes}
+  @dataset %ColumnChart.Dataset{data: @data, axes: @axes}
   @chart %BaseChart{title: "title", dataset: @dataset}
 
   describe "title/1" do
