@@ -1,6 +1,6 @@
 defmodule ChartsLive.ColumnView do
   @moduledoc """
-  View functions for rendering Bar charts
+  View functions for rendering Column charts
   """
 
   use ChartsLive.ChartBehavior

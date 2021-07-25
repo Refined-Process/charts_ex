@@ -1,30 +1,34 @@
-defmodule ChartsLive.Live.ColumnLive.ChartComponent do
+defmodule ChartsLive.Live.BarLive.ChartComponent do
   @moduledoc """
   Bar Chart Component
   """
 
   use Phoenix.LiveComponent
 
-  alias ChartsLive.ColumnView
-  alias Charts.ColumnChart
+  alias ChartsLive.BarView
+  alias Charts.BarChart
 
   def update(assigns, socket) do
-    y_axis = assigns.chart.dataset.axes.magnitude_axis
-    # Hardcode the number of steps to take as 5 for now
-    grid_lines = y_axis.grid_lines.({y_axis.min, y_axis.max}, 5)
-    grid_line_offsetter = fn grid_line -> 100 * (y_axis.max - grid_line) / y_axis.max end
+    x_axis = assigns.chart.dataset.axes.magnitude_axis
+    # Hardcode the number of steps to take as 10 for now
+    grid_lines = x_axis.grid_lines.({x_axis.min, x_axis.max}, 10)
+
+    grid_line_offsetter = fn grid_line ->
+      result = 100 * grid_line / x_axis.max
+      result
+    end
 
     socket =
       socket
       |> assign(:chart, assigns.chart)
-      |> assign(:columns, ColumnChart.columns(assigns.chart))
+      |> assign(:bars, BarChart.bars(assigns.chart))
       |> assign(:grid_lines, grid_lines)
-      |> assign(:grid_line_offsetter, grid_line_offsetter)
+      |> assign(:offsetter, grid_line_offsetter)
 
     {:ok, socket}
   end
 
   def render(assigns) do
-    ColumnView.render("chart_component.html", assigns)
+    BarView.render("chart_component.html", assigns)
   end
 end

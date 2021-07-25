@@ -22,7 +22,7 @@ defprotocol Charts.Chart do
         blue: "#6bdee4",
         rose_gradient: %Charts.Gradient{
           start_color: "#642B73",
-          stop_color: "#C6426E"
+          end_color: "#C6426E"
         }
       }
   """
@@ -42,11 +42,11 @@ defprotocol Charts.Chart do
         %{
           rose_gradient: %Charts.Gradient{
             start_color: "#642B73",
-            stop_color: "#C6426E"
+            end_color: "#C6426E"
           },
           blue_gradient: %Charts.Gradient{
             start_color: "#36D1DC",
-            stop_color: "#5B86E5"
+            end_color: "#5B86E5"
           }
         }
   """
