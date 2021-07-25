@@ -12,6 +12,6 @@ defmodule Charts.StackedColumnChart.MultiColumn do
           label: String.t(),
           column_width: Float.t(),
           column_offset: Float.t(),
-          parts: list(Charts.StackedColumnChart.MultiColumn.t())
+          parts: list(Map.t())
         }
 end
