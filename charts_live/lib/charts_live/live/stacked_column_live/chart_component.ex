@@ -11,7 +11,7 @@ defmodule ChartsLive.Live.StackedColumnLive.ChartComponent do
   def update(assigns, socket) do
     y_axis = assigns.chart.dataset.axes.magnitude_axis
     # Hardcode the number of steps to take as 5 for now
-    grid_lines = y_axis.grid_lines.({y_axis.min, y_axis.max}, 5)
+    grid_lines = y_axis.grid_lines.({y_axis.min, y_axis.max}, 10)
     grid_line_offsetter = fn grid_line -> 100 * (y_axis.max - grid_line) / y_axis.max end
 
     socket =

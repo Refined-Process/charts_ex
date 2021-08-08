@@ -108,7 +108,7 @@ defmodule Charts.StackedBarChartTest do
         height: 20.0,
         label: 15,
         width: 5.0,
-        x_offset: -10.333333333333334,
+        x_offset: 12.000000000000004,
         y_offset: 5.0
       }
 

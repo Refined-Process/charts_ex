@@ -19,12 +19,12 @@ defimpl Charts.StackedBarChart, for: Charts.BaseChart do
       bar_width = (Map.values(datum.values) |> Enum.sum()) / max * 100
 
       %MultiBar{
-        label: datum.name,
         height: height,
         offset: offset,
-        bar_offset: offset + margin,
-        bar_height: height / 2.0,
         bar_width: bar_width,
+        label: datum.name,
+        bar_height: height / 2.0,
+        bar_offset: offset + margin,
         parts: datum.values
       }
     end)
@@ -53,8 +53,8 @@ defimpl Charts.StackedBarChart, for: Charts.BaseChart do
       case acc do
         [previous | _rectangles] ->
           new_rectangle = %Rectangle{
+            x_offset: previous.x_offset + previous.width,
             y_offset: row.bar_offset,
-            x_offset: previous.x_offset - rectangle_width,
             fill_color: color,
             width: rectangle_width,
             height: row.height,
@@ -65,8 +65,8 @@ defimpl Charts.StackedBarChart, for: Charts.BaseChart do
 
         [] ->
           new_rectangle = %Rectangle{
-            x_offset: 0 + rectangle_width,
-            y_offset: row.bar_height,
+            x_offset: 0,
+            y_offset: row.bar_offset,
             fill_color: color,
             width: rectangle_width,
             height: row.height,
