@@ -1,5 +1,8 @@
 # Charts
 
+- charts split out and moved to: https://github.com/jrissler/charts
+- charts_live split out and moved to: https://github.com/jrissler/charts_live
+
 **TODO: Add description**
 
 ## Installation
@@ -20,6 +23,7 @@ and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/charts](https://hexdocs.pm/charts).
 
 ### Ideally would support the following types of charts:
+
 - Annotation Charts
 - Area Charts
 - Bar Charts
